@@ -1,0 +1,24 @@
+/* pages/hot/hot.wxss */
+
+.page{
+    background-color: #e8e8e8;
+
+}
+
+.content {
+  padding: 10rpx;
+  margin-bottom:16rpx;
+  background-color: white;
+}
+
+.question{
+  font-size:35rpx;
+}
+.questionContent {
+    margin: 10rpx ;
+    color: rgb(96, 102, 105);
+    font-size:32rpx;
+
+}
+
+

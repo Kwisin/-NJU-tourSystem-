@@ -1,0 +1,88 @@
+/* pages/hot/hot.wxss */
+
+.page{
+    background-color: #e8e8e8;
+
+}
+
+.searchicon {
+    margin: 10rpx 10rpx 10rpx 10rpx;
+    position: absolute;
+    left: 20rpx;
+    z-index: 0;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.search_arr {
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+     background-color: white;
+}
+
+.search_arr input {
+    margin-left: 60rpx;
+    height: 70rpx;
+    border-radius: 5px;
+}
+
+
+.search {
+    width: 60%;
+    height:100%;
+    background-color: white;
+    border:2rpx solid whitesmoke;
+    border-radius: 5rpx;
+    
+}
+
+
+.sousuo {
+    margin-left: 10rpx;
+    width: 19%;
+    line-height: 70rpx;
+    text-align:center;
+    font-size: 35rpx;
+    text-size-adjust: true;
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    background-color: white;
+}
+.ask {
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    width: 19%;
+    line-height: 70rpx;
+    font-size: 35rpx;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    background-color:  white;
+}
+.page_row {
+    margin-top:5rpx;
+    border-bottom: #e8e8e8;
+    display: flex;
+    flex-direction: row;
+    align-items:stretch;
+    background-color:  white;
+    
+}
+.content {
+  padding: 10rpx;
+  margin-bottom:16rpx;
+  background-color: white;
+}
+
+.question{
+  font-size:35rpx;
+}
+.questionContent {
+    margin: 10rpx ;
+    color: rgb(96, 102, 105);
+    font-size:32rpx;
+
+}
+
+

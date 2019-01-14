@@ -1,0 +1,21 @@
+<!--pages/release_problem/release_problem.wxml-->
+
+<view class="release_problem">
+   
+    <view class="title" >
+        <text>输入你的问题标题：</text>
+    </view>
+    <textarea class="title_input" placeholder='问题标题' bindinput='input_title'></textarea>
+    <view class="title" >
+        <text>输入你的问题内容：</text>
+    </view>
+    <textarea class="content_input" placeholder='问题内容' bindinput='input_content'></textarea>
+    
+</view>
+<view class="operation">
+        <switch bindchange='set_anonymous'>
+            匿名
+        </switch>
+        <button bindtap='cancel'>取消</button>
+        <button bindtap='commit_question'>提问</button>
+    </view>

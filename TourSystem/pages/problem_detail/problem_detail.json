@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "问题详情",
+  "usingComponents": {
+    "answer_detail": "../../../components/answer_detail/answer_detail"
+  }
+}

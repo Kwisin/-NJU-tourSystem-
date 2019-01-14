@@ -1,0 +1,31 @@
+/* pages/release_problem/release_problem.wxss */
+
+.release_problem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.title_input{
+    margin-top:5rpx;
+    width: 95%;
+    border: solid 1rpx whitesmoke;
+}
+.content_input{
+    margin-top:5rpx;
+    width: 95%;
+    border: solid 1rpx whitesmoke;
+}
+.operation{
+    display: flex;
+    flex-direction: flow;
+    justify-content: space-between;
+    margin-bottom: 5rpx;
+}
