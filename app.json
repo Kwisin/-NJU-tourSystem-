@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/search_results/search_results",
+    "pages/release_problem/release_problem",
+    "pages/index/index",   
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#6e0f6d",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "NJU Tour System",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#6e0f6d",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath":"/img/home.png",
+        "selectedIconPath":"/img/home-selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "聊天",
+        "iconPath": "/img/conversation.png",
+        "selectedIconPath": "/img/conversation-selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的活动",
+        "iconPath": "/img/activity.png",
+        "selectedIconPath": "/img/activity-selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人中心",
+        "iconPath": "/img/personage.png",
+        "selectedIconPath": "/img/personage-selected.png"
+      }
+    ]
+  }
+}
