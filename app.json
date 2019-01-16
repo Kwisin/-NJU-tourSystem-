@@ -1,10 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/search_results/search_results",
     "pages/release_problem/release_problem",
-    "pages/index/index",   
-    "pages/logs/logs"
+    "pages/index/index",
+    "pages/logs/logs",
+
+    "pages/personal_center/personal_center",
+    "pages/personal_center/personal_info/personal_info",
+    "pages/personal_center/personal_activity/personal_activity",
+    "pages/personal_center/personal_application/personal_application"
   ],
   "window": {
     "navigationBarBackgroundColor": "#6e0f6d",
@@ -21,8 +26,8 @@
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath":"/img/home.png",
-        "selectedIconPath":"/img/home-selected.png"
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/home-selected.png"
       },
       {
         "pagePath": "pages/index/index",
@@ -37,7 +42,7 @@
         "selectedIconPath": "/img/activity-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personal_center/personal_center",
         "text": "个人中心",
         "iconPath": "/img/personage.png",
         "selectedIconPath": "/img/personage-selected.png"

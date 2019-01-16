@@ -1,0 +1,3 @@
+<!--pages/personal_center/personal_info/personal_info.wxml-->
+
+<text>{{userInfo.username}}</text>
