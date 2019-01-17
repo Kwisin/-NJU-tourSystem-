@@ -1,11 +1,14 @@
 // pages/personal_center/personal_activity/personal_activity.js
+
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    myactivity:[]
   },
 
   /**
@@ -26,7 +29,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var userid = "1"
+    wx.request({
+      url: app.globalData.serverIP + "/activity/myActivityList/" + userid,
+      success: res => {
+        if (res.data.status == "ok") {
+          this.setData({
+            myactivity: res.data.data
+          })
+        }
+      }
+    })
   },
 
   /**

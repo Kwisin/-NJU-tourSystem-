@@ -1,3 +1,56 @@
 <!--pages/personal_center/personal_info/personal_info.wxml-->
 
 <text>{{userInfo.username}}</text>
+
+<view class="page">
+    <view class="page__hd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
+                    <!-- <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view> -->
+                </view>
+                <view class="weui-cell__bd">
+                    <view>{{userInfo.nickName}}</view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">年龄</view>
+
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{user.age}}</view>
+            </view>
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">邮箱</view>
+
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{user.email}}</view>
+            </view>
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">电话号码</view>
+
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{user.phone}}</view>
+            </view>
+
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">账户余额</view>
+
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{user.balance}}</view>
+            </view>
+
+             <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__bd">
+                    <view style="display: inline-block; vertical-align: middle">个人简介</view>
+
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{user.description}}</view>
+            </view>
+        </view>
+  </view>
+</view>

@@ -7,14 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    user: {},
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    userInfo : {}
+    
   },
 
   /**
@@ -29,7 +30,7 @@ Page({
    */
   onShow: function () {
       var that = this;
-      var userid = "1"
+      var userid = "1";
       wx.request({
         url: app.globalData.serverIP + "/user/userinfo/"+userid,
         method: 'GET',
@@ -40,10 +41,11 @@ Page({
           console.log("请求成功")
           console.log(res.data.data)
           that.setData({
-            userInfo: res.data.data
+            user: res.data.data,
+            userInfo: app.globalData.userInfo
           })
         }
-      })
+      });
     },
 
 
