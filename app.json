@@ -2,14 +2,13 @@
   "pages": [
     "pages/home/home",
     "pages/search_results/search_results",
-    "pages/release_problem/release_problem",
+    "pages/release_activity/release_activity",
+    "pages/myactivity/myactivity",
     "pages/index/index",
     "pages/logs/logs",
-
-    "pages/personal_center/personal_center",
-    "pages/personal_center/personal_info/personal_info",
-    "pages/personal_center/personal_activity/personal_activity",
-    "pages/personal_center/personal_application/personal_application"
+    "pages/activity-joined/activity-joined",
+    "pages/activity-applied/activity-applied",
+    "pages/activity-acked/activity-acked"
   ],
   "window": {
     "navigationBarBackgroundColor": "#6e0f6d",
@@ -36,13 +35,13 @@
         "selectedIconPath": "/img/conversation-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myactivity/myactivity",
         "text": "我的活动",
         "iconPath": "/img/activity.png",
         "selectedIconPath": "/img/activity-selected.png"
       },
       {
-        "pagePath": "pages/personal_center/personal_center",
+        "pagePath": "pages/index/index",
         "text": "个人中心",
         "iconPath": "/img/personage.png",
         "selectedIconPath": "/img/personage-selected.png"
