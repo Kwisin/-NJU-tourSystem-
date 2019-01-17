@@ -1,0 +1,10 @@
+<!--pages/myactivity/myactivity.wxml-->
+<view class="page">
+    <view class="firrow">
+        <button class="join"  plain='true' bindtap="clickjoin">我参加的活动</button>
+    </view>
+    <view class="secrow">
+        <button class="apply" plain='true' bindtap="clickapply">我申请的活动</button>
+        <button class="exa" plain='true' bindtap="clickexa">待审批的活动</button>
+    </view>
+</view>
