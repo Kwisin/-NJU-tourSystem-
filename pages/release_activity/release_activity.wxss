@@ -1,0 +1,58 @@
+/* pages/release_problem/release_problem.wxss */
+
+.release_problem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.title_input{
+    margin-top:5rpx;
+    width: 95%;
+    height: 80rpx;
+    border: solid 1rpx whitesmoke;
+}
+.content_input{
+    margin-top:5rpx;
+    width: 95%;
+    height:300rpx;
+    border: solid 1rpx whitesmoke;
+}
+.starttime{
+  display: flex;
+  flex-direction: row;
+}
+.starttime input{
+  border: solid 1rpx whitesmoke;
+}
+.deadline input{
+  border: solid 1rpx whitesmoke;
+}
+.maxnum input{
+  border: solid 1rpx whitesmoke;
+}
+.deadline{
+  display: flex;
+  flex-direction: row;
+  margin-top:30rpx;
+}
+.maxnum{
+  display: flex;
+  flex-direction: row;
+  margin-top:30rpx;
+}
+
+.operation{
+    display: flex;
+    flex-direction: flow;
+    justify-content: space-between;
+    margin-bottom: 5rpx;
+    margin-top: 20rpx;
+}

@@ -1,0 +1,28 @@
+<!--pages/hot/hot.wxml-->
+
+<view class="page">
+    <view class='page_row'>
+        <view class="search">
+            <view class="search_arr">
+                <icon class="searchic on" size='35' type='search'></icon>
+                <input disabled='{{false}}' placeholder="请输入关键字" type="text" bindinput='searchInput' />
+            </view>
+        </view>
+        <button class='sousuo' bindtap='search'>搜索</button>
+        <button class='ask' bindtap='ask'>发起活动</button>
+    </view>
+
+    <scroll-view class="scroll" scroll-y="{{true}}" style="height:{{height}}rpx" bindscrolltolower="loadMore">
+        <block class="contents" wx:for="{{activities}}" wx:key="id">
+            <view class="content" bindtap='viewDetails' data-question="{{item}}" data-question_id="{{item.id}}">
+                <view class="questionItem" >
+                    {{item.name}}
+                </view>
+                <view class="questionContent">
+                    {{item.description}}
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+
+</view>

@@ -1,0 +1,80 @@
+/* pages/hot/hot.wxss */
+
+.page{
+    background-color: #e8e8e8;
+}
+.searchicon {
+    margin-left: 50rpx;
+    margin-top:50rpx;
+    width: 40rpx;
+}
+.search_arr {
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 93%;
+}
+.search_arr input {
+    margin-left: 60rpx;
+    height: 93%;
+    border-radius: 5px;
+}
+.search {
+    width: 60%;
+    height:100%;
+    background-color: white;
+    border:2rpx solid whitesmoke;
+    border-radius: 5rpx;
+    
+}
+.sousuo {
+    margin-left: 10rpx;
+    width: 19%;
+    line-height: 90rpx;
+    text-align:center;
+    font-size: 35rpx;
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    background-color: white;
+}
+.ask {
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    width: 19%;
+    line-height: 50rpx;
+    font-size: 30rpx;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    background-color:  white;
+}
+.page_row {
+    margin-top:5rpx;
+    height:100rpx;
+    border-bottom: #e8e8e8;
+    display: flex;
+    flex-direction: row;
+    align-items:stretch;
+    background-color:  white;
+    
+}
+.content {
+  padding: 10rpx;
+  margin-bottom:16rpx;
+  background-color: white;
+}
+
+.questionItem{
+  font-size:35rpx;
+}
+.questionContent {
+    margin: 10rpx ;
+    color: rgb(96, 102, 105);
+    font-size:32rpx;
+
+}
+
+

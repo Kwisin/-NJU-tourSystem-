@@ -1,0 +1,21 @@
+<!--pages/release_problem/release_problem.wxml-->
+
+<view class="release_problem">   
+    <view class="title" >
+        <text>输入你的活动标题：</text>
+    </view>
+    <textarea class="title_input" placeholder='活动标题' bindinput='input_title'></textarea>
+    <view class="title" >
+        <text>输入你的活动内容：</text>
+    </view>
+    <textarea class="content_input" placeholder='活动内容' bindinput='input_content'></textarea>    
+</view>
+<view class='details'>
+    <view class='starttime'>活动发起时间：<input disabled='{{false}}' type='text' bindinput='start'/></view>
+    <view class='deadline'>活动截止时间：<input disabled='{{false}}' type='text' bindinput='end'/></view>
+    <view class='maxnum'>活动最大人数：<input disabled='{{false}}' type='text' bindinput='max'/></view>
+</view>
+<view class="operation">
+    <button bindtap='cancel'>取消</button>
+    <button bindtap='commit_question'>提问</button>
+</view>

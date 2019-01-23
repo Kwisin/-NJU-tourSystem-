@@ -1,0 +1,178 @@
+<!--pages/problem_detail/problem_detail.wxml-->
+<view class="page">
+  <view class="page-body">
+    <view class="page-section problemBox">
+      <view class="problem">
+        <text class="problem-title">{{problem.title}}</text>
+        <text class="problem-content">{{problem.content}}</text>
+      </view>
+
+      <!-- 如果是同一人，则不可以写回答：不显示控件 -->
+      <view wx:if="{{currentUserSameWithProblemOwner}}" class="edit-answer">
+      </view>
+      <!-- 否则不是同一人，如果未被禁言，则可以写回答：显示控件 -->
+      <view wx:elif="{{userInfo.ban == null}}" class="edit-answer" bindtap="releaseAnswer">
+        <image src="../../img/edit_64.png"></image>
+        <text>写回答</text>
+      </view>
+      <!-- 否则就是不是同一人并且被禁言，则显示被禁言 -->
+      <view wx:else class="ban-answer">
+        <text>您已被禁言，截止到{{userInfo.ban}}</text>
+      </view>
+      
+      <view class="follow-problem" wx:if="{{problem.anonymous == 1}}">
+        <view class="anonymous-problem">_ 匿名问题</view>
+      </view>
+      <view class="follow-problem" wx:elif="{{currentUserSameWithProblemOwner}}">
+        <view class="my-problem">> 我的问题</view>
+      </view>
+      <view class="follow-problem" wx:else>
+        <view class="to-follow-problem" bindtap="followProblem" hidden="{{hideFollowProblem}}">+ 关注问题</view>
+        <view class="unfollow-problem" bindtap="unFollowProblem" hidden="{{!hideFollowProblem}}">- 取消关注</view>
+      </view>
+      
+      <view class="get-all-answers" bindtap="getAllAnswers" style="display:none;">
+        <text>查看所有回答></text>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <swiper
+        class="swiper-box"
+        circular="true"
+        style="height:{{swiperBoxHeight}}px"
+        bindchange="switchAnswer"
+        current="{{currentSwiperItemIndex}}"
+      >
+        <block wx:for="{{answerList}}" wx:key="{{answer.answerId}}">
+          <swiper-item class="swiper-items">
+            <scroll-view
+              class="scroll-view"
+              scroll-y
+              enable-back-to-top
+              bindscrolltoupper="upper"
+              bindscrolltolower="lower"
+            >
+              <answer_detail title="Detail for answer" userInfo="{{userInfo}}" answer_detail="{{item}}" currentUserSameWithAnswerOwner="{{currentUserSameWithAnswerOwner}}" bindrefreshanswer="refreshAnswerList"  bindrefreshcomment="refreshCommentList"></answer_detail>
+            </scroll-view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="page-section bottom-tabbar" hidden="{{userInfo.role != 1 && !currentUserSameWithProblemOwner && answerList.length == 0}}">
+      <view hidden="{{answerList.length == 0}}">
+        <view wx:if="{{userInfo.ban == null}}" class="opertion-block" bindtap="releaseComment">
+          <image src="../../img/comment_64.png"></image>
+          <text>评论回答</text>
+        </view>
+        <view wx:else class="opertion-block ban-comment">
+          <image src="../../img/bancomment_64.png"></image>
+          <text>无法评论</text>
+        </view>
+      </view>
+
+      <view wx:if="{{!currentUserSameWithAnswerOwner}}" class="opertion-block" hidden="{{answerList.length == 0}}">
+        <view bindtap="starAnswer" hidden="{{hideStarAnswer}}">
+          <image src="../../img/star_64.png"></image>
+          <text>点赞</text>
+        </view>
+        <view hidden="{{!hideStarAnswer}}">
+          <image src="../../img/stared_64.png"></image>
+          <text>已点赞</text>
+        </view>
+      </view>
+
+      <view
+        wx:if="{{userInfo.role == 1}}"
+        class="opertion-block"
+        bindtap="deleteProblem"
+        style="float:left"
+      >
+        <image src="../../img/delete_64.png"></image>
+        <text>删除问题</text>
+      </view>
+
+      <view wx:if="{{userInfo.role == 1}}" hidden="{{!currentUserSameWithProblemOwner}}">
+        <view
+          class="opertion-block"
+          bindtap="closeProblem"
+          style="float:left"
+          hidden="{{hideCloseProblem}}"
+        >
+          <image src="../../img/close_64.png"></image>
+          <text>关闭问题</text>
+        </view>
+        <view
+          class="opertion-block"
+          bindtap="resolveProblem"
+          style="float:left;"
+          hidden="{{!hideCloseProblem}}"
+        >
+          <image src="../../img/resolve_64.png"></image>
+          <text>解除关闭</text>
+        </view>
+      </view>
+      <view
+        wx:elif="{{!currentUserSameWithProblemOwner}}"
+        class="opertion-block"
+        style="display:none;"
+      >
+        我既不是管理员也不是提问者
+      </view>
+      <view wx:else>
+        <view
+          class="opertion-block"
+          bindtap="closeProblem"
+          style="float:left;"
+          hidden="{{hideCloseProblem}}"
+        >
+          <image src="../../img/close_64.png"></image>
+          <text>关闭问题</text>
+        </view>
+        <view
+          class="opertion-block"
+          bindtap="resolveProblem"
+          style="float:left;"
+          hidden="{{hideResolveProblem}}"
+        >
+          <image src="../../img/resolve_64.png"></image>
+          <text>解除关闭</text>
+        </view>
+      </view>
+      
+      <modal 
+        title="是否删除问题？"
+        hidden="{{hideDeleteProblemModal}}"
+        cancel-text="取消"
+        confirm-text="确定"
+        bindconfirm="confirmDeleteProblem"
+        bindcancel="cancelDeleteProblem"
+      >
+      </modal>
+      <modal 
+        title="是否关闭该问题？"
+        hidden="{{hideCloseProblemModal}}"
+        cancel-text="取消"
+        confirm-text="确定"
+        bindconfirm="confirmCloseProblem"
+        bindcancel="cancelCloseProblem"
+      >
+      </modal>
+      <modal 
+        title="是否解除关闭该问题？"
+        hidden="{{hideResolveProblemModal}}"
+        cancel-text="取消"
+        confirm-text="确定"
+        bindconfirm="confirmResolveProblem"
+        bindcancel="cancelResolveProblem"
+      >
+      </modal>
+
+      <view class="opertion-block" style="display:none;">
+        <text>当前回答的ID：{{currentAnswerId}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,33 @@
+/* pages/myactivity/myactivity.wxss */
+.page{
+    background-color: #e8e8e8;
+}
+.firrow{
+  width: 100%;
+  background-color: white;
+}
+.join{
+  width: 40%;
+  height: 300rpx;
+  margin-top: 100rpx;
+  font-size: 50rpx;
+}
+.secrow{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+.apply{
+  width: 40%;
+  height: 300rpx;
+  margin-top: 100rpx;
+  margin-left: 7%;
+  font-size: 50rpx;
+}
+.exa{
+  width: 40%;
+  height: 300rpx;
+  margin-top: 100rpx;
+  margin-right: 7%;
+  font-size: 50rpx;
+}
