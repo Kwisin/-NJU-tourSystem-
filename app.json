@@ -8,7 +8,13 @@
     "pages/logs/logs",
     "pages/activity-joined/activity-joined",
     "pages/activity-applied/activity-applied",
-    "pages/activity-acked/activity-acked"
+    "pages/activity-acked/activity-acked",
+
+
+    "pages/personal_center/personal_center",
+    "pages/personal_center/personal_info/personal_info",
+    "pages/personal_center/personal_activity/personal_activity",
+    "pages/personal_center/personal_application/personal_application"
   ],
   "window": {
     "navigationBarBackgroundColor": "#6e0f6d",
@@ -41,7 +47,7 @@
         "selectedIconPath": "/img/activity-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personal_center/personal_center",
         "text": "个人中心",
         "iconPath": "/img/personage.png",
         "selectedIconPath": "/img/personage-selected.png"
