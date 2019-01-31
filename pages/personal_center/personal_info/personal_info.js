@@ -40,9 +40,11 @@ Page({
         success: function (res) {
           console.log("请求成功")
           console.log(res.data.data)
+          
           that.setData({
             user: res.data.data,
             userInfo: app.globalData.userInfo
+
           })
         }
       });
