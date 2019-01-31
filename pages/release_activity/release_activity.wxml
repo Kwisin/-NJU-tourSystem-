@@ -1,6 +1,5 @@
-<!--pages/release_problem/release_problem.wxml-->
 
-<view class="release_problem">   
+<view class="release_activity">   
     <view class="title" >
         <text>输入你的活动标题：</text>
     </view>
@@ -10,12 +9,58 @@
     </view>
     <textarea class="content_input" placeholder='活动内容' bindinput='input_content'></textarea>    
 </view>
+<view class="location">
+    <text>请选择出游地点：</text><button class="map" bindtap='openmap'>打开地图</button>
+</view>
 <view class='details'>
-    <view class='starttime'>活动发起时间：<input disabled='{{false}}' type='text' bindinput='start'/></view>
-    <view class='deadline'>活动截止时间：<input disabled='{{false}}' type='text' bindinput='end'/></view>
-    <view class='maxnum'>活动最大人数：<input disabled='{{false}}' type='text' bindinput='max'/></view>
+    <view class="section">        
+        <picker
+          mode="date"
+          value="{{date_deadline}}"
+          start="2018-09-01"
+          end="2099-09-01"
+          bindchange="bindDateChange3"
+        >
+        
+        <button class="starttime">选择活动报名截止日期</button>         
+        </picker>
+        <view class="picker">
+            当前选择: {{date_deadline}}
+        </view>
+    </view>
+    <view class="section">        
+        <picker
+          mode="date"
+          value="{{date_begin}}"
+          start="2018-09-01"
+          end="2099-09-01"
+          bindchange="bindDateChange1"
+        >
+        
+        <button class="starttime">选择活动开始日期</button>         
+        </picker>
+        <view class="picker">
+            当前选择: {{date_begin}}
+        </view>
+    </view>
+    <view class="section">        
+        <picker
+          mode="date"
+          value="{{date_end}}"
+          start="2018-09-01"
+          end="2099-09-01"
+          bindchange="bindDateChange2"
+        >
+        <button class="deadline">选择活动截止日期</button>       
+        </picker>
+        <view class="picker">
+            当前选择: {{date_end}}
+        </view>
+    </view>
+    <view class='maxnum'>活动最大人数：<input type='number' bindinput='input_maxnum'/></view>
+    <view class="payment">活动所需费用：<input type='number' bindinput='input_payment'/></view>
 </view>
 <view class="operation">
     <button bindtap='cancel'>取消</button>
-    <button bindtap='commit_question'>提问</button>
+    <button bindtap='commit_activity'>提交</button>
 </view>

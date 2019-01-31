@@ -1,7 +1,7 @@
-// pages/problem_detail/problem_detail.js
+// pages/activity_detail/activity_detail.js
 // 获取App实例
 var app = getApp();
-var util = require("../../utils/util.js")
+var Utils = require("../../utils/util.js")
 
 Page({
 
@@ -10,8 +10,15 @@ Page({
    */
   data: {
     userInfo: null,
-    problem: null,
+    activity: null,
     answerList: null,
+    currentDate: null,
+    deadline: null,
+    startTime: null,
+    endTime: null,
+    maxNum: null,
+    currentNum: null,
+    payment: null,
     currentSwiperItemIndex: 0,
     // 当前回答ID，在页面加载时应该初始化为anwserList中首个answer的id，并且在每次切换answer时，赋值为切换的answer的id
     currentAnswer: null,
@@ -35,9 +42,71 @@ Page({
     swiperBoxHeight: 0,
   },
 
+  // 关注问题
+  followProblem: function () {
+    console.log("关注问题");
+    console.log(app.globalData.userId);
+    console.log(this.data.activity.id)
+    wx.request({
+      url: app.globalData.serverIP + "/activity/joinActivity/" + app.globalData.userId + "," + this.data.activity.id,
+      success: res => {
+        if (res.data.status == "ok") {
+          //util.insert(this.data.userInfo.followProblem, this.data.problem.problemId);
+          //wx.setStorageSync("userInfo", this.data.userInfo);
+          wx.showToast({
+            title: "参加活动成功",
+          });
+          /*
+          this.setData({
+            hideFollowProblem: true
+          });*/
+        } else {
+          wx.showToast({
+            title: "参加活动失败",
+          });
+        }
+      }
+    })
+  },
+
+  onLoad: function (options) {
+    var TIME = Utils.formatDate(new Date());
+    this.setData({
+      currentDate: TIME,
+    });
+    var id = options.id;
+    wx.request({
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      },
+      url: app.globalData.serverIP + '/activity/activityInfo/' + id,
+      success: res => {
+        this.setData({
+          activity: res.data.data,
+          deadline: res.data.data.deadline,
+          startTime: res.data.data.startTime,
+          endTime: res.data.data.endTime,
+          maxNum: res.data.data.maxNum,
+          payment: res.data.data.payment
+        })        
+      },
+    })
+    wx.request({
+      url: app.globalData.serverIP + '/activity/getMemberList/' + id,
+      success: res => {
+        this.setData(
+          {
+              currentNum: res.data.data.length
+          },
+          console.log(res.data.data.length)
+        )
+      }
+    })
+    
+  },
   /**
    * 事件监听
-   */
+   
   upper(e) {
     // console.log(e)
   },
@@ -168,34 +237,9 @@ Page({
       hideStarAnswer: util.contains(this.data.currentAnswer.staredBy, this.data.userInfo.userId),
     })
   },
-  // 关注问题
-  followProblem: function() {
-    console.log("关注问题");
-    wx.request({
-      url: app.globalData.serverIP + "/api/problem/follow",
-      method: "POST",
-      data: {
-        problemId: this.data.problem.problemId,
-        userId: this.data.userInfo.userId
-      },
-      success: res => {
-        if (res.data.status == 0) {
-          util.insert(this.data.userInfo.followProblem, this.data.problem.problemId);
-          wx.setStorageSync("userInfo", this.data.userInfo);
-          wx.showToast({
-            title: "关注问题成功",
-          });
-          this.setData({
-            hideFollowProblem: true
-          });
-        } else {
-          wx.showToast({
-            title: "关注问题失败",
-          });
-        }
-      }
-    })
-  },
+  */
+  
+  /**
   // 取消关注问题
   unFollowProblem: function () {
     console.log("取消关注问题");
@@ -335,13 +379,14 @@ Page({
     this.setData({
       hideResloveProblemModal: true
     });
-  },
+  },*/
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+ 
 
+    /*
     wx.getSystemInfo({
       success: res => {
 
@@ -377,9 +422,9 @@ Page({
           currentUserSameWithAnswerOwner: this.data.userInfo.userId == currentProblemDetailRes.answerList[0].answer.user.userId,
         });
       }
-    }
+    }*/
     
-  },
+  //},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -393,7 +438,7 @@ Page({
    */
   onShow: function () {
     // 避免在问题详情页面将回答删除完（当回答只有一个，且删除之后，current...Index = -1），再创建新的回答之后新的回答不显示
-    if(this.data.currentSwiperItemIndex < 0) {
+    /*if(this.data.currentSwiperItemIndex < 0) {
       this.setData({
         currentSwiperItemIndex: 0
       })
@@ -410,7 +455,7 @@ Page({
           })
         }
       })
-    }
+    }*/
      
     
   },
@@ -426,7 +471,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**

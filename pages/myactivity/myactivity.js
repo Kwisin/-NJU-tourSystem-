@@ -7,19 +7,19 @@ Page({
   data: {
 
   },
-  clickjoin:function(){
+  clicknew:function(){
     wx.navigateTo({
-      url: 'pages/activity-joined/activity-joined',
+      url: '../../pages/newActivity/newActivity',
     })
   },
-  clickapply:function(){
+  clickongoing:function(){
     wx.navigateTo({
-      url: 'pages/activity-applied/activity-applied',
+      url: '../../pages/ongoingActivity/ongoingActivity',
     })
   },
-  clickexa:function(){
+  clickfinished:function(){
     wx.navigateTo({
-      url: 'pages/activity-acked/activity-acked',
+      url: '../../pages/finishedActivity/finishedActivity',
     })
   },
 

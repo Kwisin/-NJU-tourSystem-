@@ -14,11 +14,11 @@
 
     <scroll-view class="scroll" scroll-y="{{true}}" style="height:{{height}}rpx" bindscrolltolower="loadMore">
         <block class="contents" wx:for="{{activities}}" wx:key="id">
-            <view class="content" bindtap='viewDetails' data-question="{{item}}" data-question_id="{{item.id}}">
-                <view class="questionItem" >
+            <view class="content" bindtap='viewDetails' data-activity="{{item}}" data-id="{{item.id}}">
+                <view class="activityItem" >
                     {{item.name}}
                 </view>
-                <view class="questionContent">
+                <view class="activityContent">
                     {{item.description}}
                 </view>
             </view>

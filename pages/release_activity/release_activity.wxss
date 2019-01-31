@@ -1,6 +1,6 @@
 /* pages/release_problem/release_problem.wxss */
 
-.release_problem{
+.release_activity{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,31 +22,54 @@
 .content_input{
     margin-top:5rpx;
     width: 95%;
-    height:300rpx;
+    height:180rpx;
     border: solid 1rpx whitesmoke;
 }
+.location{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;    
+}
+.location text{
+  width:40%;
+  margin-top:3%；
+}
+.map{
+  width:50%;
+  height:30%;
+  margin-right: 5%;
+  font-size:30rpx;
+}
+.section{
+  margin-top: 2%; 
+}
 .starttime{
-  display: flex;
-  flex-direction: row;
-}
-.starttime input{
-  border: solid 1rpx whitesmoke;
-}
-.deadline input{
-  border: solid 1rpx whitesmoke;
-}
-.maxnum input{
-  border: solid 1rpx whitesmoke;
+  width: 60%;
+  font-size: 35rpx;
 }
 .deadline{
-  display: flex;
-  flex-direction: row;
-  margin-top:30rpx;
+  width: 60%;
+  font-size: 35rpx;
 }
+.picker{
+  text-align: center
+}
+
 .maxnum{
   display: flex;
   flex-direction: row;
-  margin-top:30rpx;
+  margin-top:2%;
+}
+.maxnum input{
+  border: solid 2rpx whitesmoke;
+}
+.payment{
+  display: flex;
+  flex-direction: row;
+  margin-top:2%;
+}
+.payment input{
+  border: solid 2rpx whitesmoke;
 }
 
 .operation{
@@ -54,5 +77,5 @@
     flex-direction: flow;
     justify-content: space-between;
     margin-bottom: 5rpx;
-    margin-top: 20rpx;
+    margin-top: 4%;
 }

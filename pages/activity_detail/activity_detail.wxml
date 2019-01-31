@@ -3,39 +3,55 @@
   <view class="page-body">
     <view class="page-section problemBox">
       <view class="problem">
-        <text class="problem-title">{{problem.title}}</text>
-        <text class="problem-content">{{problem.content}}</text>
+        <text class="problem-title">{{activity.name}}</text>                      
       </view>
-
-      <!-- 如果是同一人，则不可以写回答：不显示控件 -->
+      <view class="problem-content">{{activity.description}} </view> 
+      <view class="datesection">        
+            <text class="fir">报名截止日期：{{deadline}}</text>
+            <text class="sec">剩余名额：{{maxNum-currentNum}}</text>
+      </view> 
+      <view class="datesection">    
+            <text class="fir">活动开始日期：{{startTime}}</text>
+            <text class="sec">活动经费：{{payment}}</text>
+      </view> 
+      <view class="datesection">        
+            <text class="fir">活动结束日期：{{endTime}}</text>
+      </view> 
+      <view class="follow-problem" wx:if="{{currentDate <= deadline}}">
+        <view class="to-follow-problem" bindtap="followProblem">+ 参加活动 </view>
+      </view>    
+      <view class="follow-problem" wx:else>
+        <view class="my-problem"  >已过期</view>
+      </view>
+    </view>
+  </view>
+</view>
+      <!--
+      <!-- 如果是同一人，则不可以写回答：不显示控件 
       <view wx:if="{{currentUserSameWithProblemOwner}}" class="edit-answer">
       </view>
-      <!-- 否则不是同一人，如果未被禁言，则可以写回答：显示控件 -->
+      <!-- 否则不是同一人，如果未被禁言，则可以写回答：显示控件 
       <view wx:elif="{{userInfo.ban == null}}" class="edit-answer" bindtap="releaseAnswer">
         <image src="../../img/edit_64.png"></image>
         <text>写回答</text>
       </view>
-      <!-- 否则就是不是同一人并且被禁言，则显示被禁言 -->
+      <!-- 否则就是不是同一人并且被禁言，则显示被禁言 
       <view wx:else class="ban-answer">
         <text>您已被禁言，截止到{{userInfo.ban}}</text>
       </view>
+      -->
       
-      <view class="follow-problem" wx:if="{{problem.anonymous == 1}}">
-        <view class="anonymous-problem">_ 匿名问题</view>
-      </view>
-      <view class="follow-problem" wx:elif="{{currentUserSameWithProblemOwner}}">
-        <view class="my-problem">> 我的问题</view>
-      </view>
-      <view class="follow-problem" wx:else>
-        <view class="to-follow-problem" bindtap="followProblem" hidden="{{hideFollowProblem}}">+ 关注问题</view>
-        <view class="unfollow-problem" bindtap="unFollowProblem" hidden="{{!hideFollowProblem}}">- 取消关注</view>
-      </view>
       
+        <!--
+        <view class="unfollow-problem" bindtap="unFollowProblem" hidden="{{!hideFollowProblem}}">- 取消关注</view>-->
+      
+      <!--
       <view class="get-all-answers" bindtap="getAllAnswers" style="display:none;">
         <text>查看所有回答></text>
       </view>
-    </view>
-
+      -->
+    
+<!--
     <view class="page-section">
       <swiper
         class="swiper-box"
@@ -59,6 +75,7 @@
         </block>
       </swiper>
     </view>
+    
 
     <view class="page-section bottom-tabbar" hidden="{{userInfo.role != 1 && !currentUserSameWithProblemOwner && answerList.length == 0}}">
       <view hidden="{{answerList.length == 0}}">
@@ -173,6 +190,6 @@
         <text>当前回答的ID：{{currentAnswerId}}</text>
       </view>
     </view>
-  </view>
-</view>
+    -->
+  
 

@@ -1,20 +1,44 @@
-// pages/activity-applied/activity-applied.js
+// pages/activity-acked/activity-acked.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activities: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: app.globalData.serverIP + '/activity/myNewActivityList/' + app.globalData.userId,
+      success: res => {
+        if (res.data.data.length == 0) {
+          wx.showToast({
+            title: '没有相关活动',
+            image: '../../img/error.png'
+          })
+        }
+        else {
+          this.setData({
+            activities: res.data.data
+          })
+        }
+      }
+    })
   },
 
+  viewDetails: function (e) {
+    console.log(e.currentTarget.dataset)
+    var id = e.currentTarget.dataset.id;
+    this.data.currentActivity = e.currentTarget.dataset.activity;
+    wx.navigateTo({
+      url: '../../pages/activity_detail/activity_detail?id=' + id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,78 @@
+/* pages/problem_detail/problem_detail.wxss */
+page {
+  background-color: #e8e8e8;
+  height: 100%;
+}
+.page-section{
+  width: 100%;
+}
+.problemBox{
+  background-color: #ffffff;
+  /* second section距离tabBar的高度为222rpx */
+  width: 90%;  
+  padding: 30rpx 37.5rpx 0;  
+}
+.problem {
+  height: 100rpx;
+}
+  .problem text {    
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+    .problem text.problem-title {
+      display: block;
+      font-size: 45rpx;
+      font-weight: bolder;
+    }
+.problem-content {
+  display: block;
+  font-size: 35rpx;
+  margin-top: 10rpx;
+} 
+
+.datesection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8%;
+  font-size: 25rpx;
+}
+.datesection .sec {
+  margin-left: 15%;
+}
+.follow-problem {
+  width: 35%;
+  height: 42rpx;
+  line-height: 60rpx;
+  border-radius: 4rpx;
+  margin: 8rpx 0;
+  font-size: 30rpx;
+  font-weight: bolder;
+  text-align: center;
+  float: right;
+}
+  .follow-problem .anonymous-problem {
+    color: #f6f6f6;
+  }
+  .follow-problem .to-follow-problem {
+    color: #0184ff;
+    background-color: #f6f6f6;
+  }
+  .follow-problem .unfollow-problem {
+    color: #999999;
+    background-color: #f6f6f6;
+  }
+  .follow-problem .my-problem {
+    color: #ff0000;
+  }
+
+
+
+
+
+
+
+

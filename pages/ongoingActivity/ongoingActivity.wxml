@@ -1,0 +1,15 @@
+<!--pages/activity-applied/activity-applied.wxml-->
+<view class="page">
+    <scroll-view class="scroll" scroll-y="{{true}}" style="height:{{height}}rpx" bindscrolltolower="loadMore">
+        <block class="contents" wx:for="{{activities}}" wx:key="id">
+            <view class="content" bindtap='viewDetails' data-activity="{{item}}" data-id="{{item.id}}">
+                <view class="questionItem" >
+                    {{item.name}}
+                </view>
+                <view class="questionContent">
+                    {{item.description}}
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

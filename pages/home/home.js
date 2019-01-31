@@ -11,7 +11,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     inputContent: "",
     activities: [],
-    currentProblem: null,
+    currentActivity: null,
     currentAnswerList: null,
     scrollHeight: ""
 
@@ -28,21 +28,7 @@ Page({
     if (this.data.inputContent.length != 0) {
       wx.navigateTo({
         url: '../search_results/search_results?key=' + this.data.inputContent,
-      })
-      // wx.request({
-      //     url: app.globalData.serverIP +'/api/problem/search?key='+this.data.inputContent,
-      //     success: res=>{
-      //         console.log("请求")
-      //         if(res.data.status == 0){
-      //             console.log("成功")
-      //             console.log(res.data)
-      //             console.log(res.data.data)
-      //             this.data.questions = res.data.data
-      //             this.setData({questions:this.data.questions})
-
-      //         }
-      //     }
-      // })
+      })      
     }
   },
   /**
@@ -59,10 +45,14 @@ Page({
    *转跳到问题和答案页
    */
   viewDetails: function (e) {
-    var question_id = e.currentTarget.dataset.question_id;
-    this.data.currentProblem = e.currentTarget.dataset.question;
-    wx.request({
-      url: app.globalData.serverIP + "/api/answer/list?problemId=" + question_id,
+    console.log(e.currentTarget.dataset)
+    var id = e.currentTarget.dataset.id;
+    this.data.currentActivity = e.currentTarget.dataset.activity;
+    wx.navigateTo({
+      url: '../../pages/activity_detail/activity_detail?id='+id,
+    })
+    /*wx.request({
+      url: app.globalData.serverIP + "/activity/activityInfo?problemId=" + id,
       success: res => {
         this.setData({
           currentAnswerList: res.data.data
@@ -77,12 +67,12 @@ Page({
           },
           success: res => {
             wx.navigateTo({
-              url: '../problem_detail/problem_detail',
+              url: '../activity_detail/activity_detail',
             })
           },
         })
       }
-    })
+    })*/
   },
   /**
    * 生命周期函数--监听页面加载
@@ -99,7 +89,7 @@ Page({
             activities: res.data.data,
             height: this.data.height
           })
-          console.log(this.activities)
+          //console.log(this.activities)
         }
         //console.log(this.questions)
       }
@@ -116,7 +106,7 @@ Page({
       success: res => {
         if (res.data.status == "ok") {
           this.setData({
-            questions: res.data.data
+            activities: res.data.data
           })
         }
       }
@@ -134,13 +124,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log(app.globalData.userInfo)
     wx.request({
       url: app.globalData.serverIP + "/activity/activityList",
       success: res => {
-        if (res.data.status=="ok") {
+        if (res.data.status == "ok") {
           this.setData({
-            questions: res.data.data
+            activities: res.data.data,
+            height: this.data.height
           })
+          //console.log(this.activities)
         }
       }
     })

@@ -1,5 +1,4 @@
-/* pages/hot/hot.wxss */
-
+/* pages/activity-acked/activity-acked.wxss */
 .page{
     background-color: #e8e8e8;
 }
@@ -65,20 +64,14 @@
   padding: 10rpx;
   margin-bottom:16rpx;
   background-color: white;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.activityItem{
+.questionItem{
   font-size:35rpx;
 }
-.activityContent {
+.questionContent {
     margin: 10rpx ;
     color: rgb(96, 102, 105);
     font-size:32rpx;
 
 }
-
-
