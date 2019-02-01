@@ -8,7 +8,7 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        questions: [],
+        activities: [],
         currentProblem: null,
         currentAnswerList: null,
         scrollHeight: ""
@@ -45,33 +45,12 @@ Page({
     *转跳到问题和答案页
     */
     viewDetails: function (e) {
-        var question_id = e.currentTarget.dataset.question_id;
-        this.data.currentProblem = e.currentTarget.dataset.question;
-        wx.request({
-            url: app.globalData.serverIP + "/api/answer/list?problemId=" + question_id,
-            success: res => {
-                this.setData({
-                    currentAnswerList: res.data.data
-                })
-
-                console.log(this.data.currentProblem)
-                console.log(this.data.currentAnswerList)
-
-                // 将要打开的problem_detail存入本地缓存中
-                wx.setStorage({
-                    key: "currentProblemDetail",
-                    data: {
-                        problem: this.data.currentProblem,
-                        answerList: this.data.currentAnswerList
-                    },
-                    success: res => {
-                        wx.navigateTo({
-                            url: '../problem_detail/problem_detail',
-                        })
-                    },
-                })
-            }
-        })
+      console.log(e.currentTarget.dataset)
+      var id = e.currentTarget.dataset.id;
+      this.data.currentActivity = e.currentTarget.dataset.activity;
+      wx.navigateTo({
+        url: '../../pages/activity_detail/activity_detail?id=' + id,
+      })
     },
 
 
@@ -89,16 +68,26 @@ Page({
         // this.data.questions = this.data.questions.concat(list)
         // this.setData({ questions: this.data.questions, height: this.data.height })
         wx.request({
-            url: app.globalData.serverIP + '/api/problem/search?key='+value,
+          header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8', },
+          url: app.globalData.serverIP + '/activity/searchActivity/' +value,
             success: res => {
-                // console.log(res.data.data)
-                if (res.data.status == 0) {
+                 console.log(res.data)
+                if (res.data.status == "ok") {
+                  if (res.data.data.length == 0) {
+                    wx.showToast({
+                      title: 'No Results',
+                      duration: 2000,
+                    })
+                  }
+                  else {  
                     console.log(res.data.data)
                     this.setData({
-                        questions: res.data.data,
+                        activities: res.data.data,
                         // currentProblem: res.data.data[1],
                         height: this.data.height
                     })
+                    console.log(this.data.activities.length)
+                  }
                 }
             }
         })
@@ -120,14 +109,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        if(this.data.questions.length == 0){
-            wx.showToast({
-                title: 'No Results',
-                duration: 2000,
-            })
-           
-            
-        }
+      console.log("进入search的onShow")
+      
     },
 
     /**
