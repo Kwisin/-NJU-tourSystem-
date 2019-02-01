@@ -1,0 +1,17 @@
+<!--pages/personal_center/personal_application/modify.wxml-->
+
+<view class="page">
+        <view class="weui-cells weui-cells_after-title" style="margin-top:30rpx">
+          <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label" >{{id}}</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="{{value}}" bindinput='getValue' />
+                </view>
+                <view class="weui-cell__ft">
+                    <view class="weui-vcode-btn" bindtap="submit_modify">提交修改</view>
+                </view>
+          </view>
+        </view>
+</view>          

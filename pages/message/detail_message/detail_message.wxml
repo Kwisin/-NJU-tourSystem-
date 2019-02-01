@@ -1,0 +1,30 @@
+<!--pages/message/detail_message/detail_message.wxml-->
+<view class="page">
+       
+
+
+  <view class="page__bd page__bd_spacing" style="padding-bottom:8px" wx:for="{{message}}" wx:key="id" wx:for-item="item">
+          <view class="weui-flex">
+            <view>
+            <view class="placeholder" style='width:50px'>
+              <image src="/img/pic_160.png" style="width: 100%; height: 100%; display: block"/>
+            </view></view>
+            <view class="weui-flex__item"><view class="placeholder" style="background-color:#EBEBEB"> {{item.comment}}  </view></view>
+
+        </view>
+  </view>
+</view>     
+
+ <view class="weui-cells weui-cells_after-title" style="position:absolute;bottom:0;width:100%">
+          <view class="weui-cell weui-cell_input weui-cell_vcode"  style="background-color: #ffffff;">
+                <view class="weui-cell__hd">
+                    <image src="/img/keyboard.png" style="margin-right: 10px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="{{value}}" style="background-color:#FFFFFF" />
+                </view>
+                <view class="weui-cell__ft" style="background-color:#FFFFFF">
+                    <button class="weui-btn mini-btn" style="width:100%;height:100%;" type="primary" size="mini">回复</button>
+                </view>
+          </view>
+</view>

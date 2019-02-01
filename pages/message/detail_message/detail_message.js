@@ -1,5 +1,5 @@
-// pages/personal_center/personal_application/personal_application.js
-var app = getApp()
+// pages/message/detail_message/detail_message.js
+const app = getApp()
 
 Page({
 
@@ -7,14 +7,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-      myapplication : {}
+    message:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.sid = options.id
+    var userid = "2"
+    var that = this
+    wx.request({
+      url: app.globalData.serverIP + "/comment/newCommentInfoList/" + userid,
+      method: 'GET',
+      header: {
+        "Content-Type": "application/json"
+      },
+      success: function (res) {
+        console.log("请求成功");
+        console.log(res.data.data);
+        var messagelist = res.data.data;
+        var message = null;
+        for(var i=0;i<messagelist.length;i++){
+          if (messagelist[i].user.id == options.id)
+              message = messagelist[i].commentList
+        }
+        that.setData({
+          message: message,
 
+        })
+        console.log(message)
+      }
+    });
   },
 
   /**
@@ -28,19 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userid = "1"
-    wx.request({
-      url: app.globalData.serverIP + "/activity/myapplicationList/" + userid,
-      success: res => {
-        if (res.data.status == "ok") {
-          console.log(res.data)
-          this.setData({
-          
-            myapplication: res.data.data
-          })
-        }
-      }
-    })
+
   },
 
   /**

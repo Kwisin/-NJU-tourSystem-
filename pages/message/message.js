@@ -1,4 +1,4 @@
-// pages/personal_center/personal_application/personal_application.js
+// pages/message/message.js
 var app = getApp()
 
 Page({
@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      myapplication : {}
+    messagelist:[]
   },
 
   /**
@@ -28,19 +28,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userid = "1"
+    var userid = "2"
+    var that = this
     wx.request({
-      url: app.globalData.serverIP + "/activity/myapplicationList/" + userid,
-      success: res => {
-        if (res.data.status == "ok") {
-          console.log(res.data)
-          this.setData({
-          
-            myapplication: res.data.data
-          })
-        }
+      url: app.globalData.serverIP + "/comment/newCommentInfoList/" + userid,
+      method: 'GET',
+      header: {
+        "Content-Type": "application/json"
+      },
+      success: function (res) {
+        console.log("请求成功")
+        console.log(res.data.data)
+
+        that.setData({
+          messagelist: res.data.data,
+
+        })
       }
-    })
+    });
   },
 
   /**

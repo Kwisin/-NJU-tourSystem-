@@ -1,5 +1,5 @@
 <!--pages/personal_center/personal_activity/personal_activity.wxml-->
-<view class="page">
+<view class="page" >
   <view class="page__bd">
           <view class="weui-panel weui-panel_access" wx:for="{{myactivity}}" wx:key="id" wx:for-item="item">
             <view class="weui-panel__hd">{{item.createdTime}} ～ {{item.deadline}}</view>

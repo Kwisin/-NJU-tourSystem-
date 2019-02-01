@@ -1,5 +1,5 @@
 /* pages/personal_center/person.wxss */
-.head{display:flex;flex-direction: column;background: #efefef;width:100%;padding: 100rpx 0rpx; align-items: center;  justify-content: space-between;background: #6b0f6a}
+.head{display:flex;flex-direction: column;background: #efefef;width:100%;padding: 30rpx 0rpx; align-items: center;  justify-content: space-between;background: #6b0f6a}
 
 .head image{width:150rpx;height:150rpx;margin:0 auto;border-radius: 50%;}
 .list view{font-size:12pt;}

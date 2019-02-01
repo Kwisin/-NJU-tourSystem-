@@ -1,0 +1,12 @@
+/* pages/message/detail_message/detail_message.wxss */
+
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    /* background-color:#EBEBEB; */
+    height:50px;
+
+    line-height: 2.3em;
+    color: #000000;
+}
