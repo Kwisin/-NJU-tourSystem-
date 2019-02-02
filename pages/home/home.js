@@ -79,6 +79,28 @@ Page({
    */
   onLoad: function (options) {
 
+    wx.request({
+
+      url: app.globalData.serverIP + "/login/addUserInfo",
+      method: 'POST',
+      data: {
+        uid: app.globalData.uid,
+        nickname: app.globalData.userInfo.nickName,
+        url: app.globalData.userInfo.avatarUrl
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: resdata => {
+        console.log("success")
+      }
+    });
+
+
+
+
+
+
     console.log("进入hot的onLoad")
    this.data.height = app.globalData.height * 750 / app.globalData.width - 80
     wx.request({

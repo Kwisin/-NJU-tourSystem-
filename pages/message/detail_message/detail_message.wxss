@@ -1,9 +1,9 @@
 /* pages/message/detail_message/detail_message.wxss */
 
 .placeholder{
-    margin: 5px;
+    margin: 10px;
     padding: 0 10px;
-    text-align: center;
+    text-align: left;
     /* background-color:#EBEBEB; */
     height:50px;
 

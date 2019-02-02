@@ -28,8 +28,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userid = "2"
-    var that = this
+    var userid = app.globalData.uid;
+    var that = this;
     wx.request({
       url: app.globalData.serverIP + "/comment/newCommentInfoList/" + userid,
       method: 'GET',

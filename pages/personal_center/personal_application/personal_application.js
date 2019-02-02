@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      myapplication : {}
+      myapplication : {},
+      refuselist:{}
   },
 
   /**
@@ -28,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userid = "1"
+    var userid = app.globalData.uid
     wx.request({
       url: app.globalData.serverIP + "/activity/myapplicationList/" + userid,
       success: res => {
@@ -40,7 +41,20 @@ Page({
           })
         }
       }
-    })
+    });
+    wx.request({
+      url: app.globalData.serverIP + "/activity/myRefusedList/" + userid,
+      success: res => {
+        if (res.data.status == "ok") {
+          console.log(res.data)
+          this.setData({
+
+            refuselist: res.data.data
+          })
+        }
+      }
+    });
+
   },
 
   /**

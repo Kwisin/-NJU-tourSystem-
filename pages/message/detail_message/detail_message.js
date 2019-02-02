@@ -7,7 +7,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    message:null
+    isHide: false,
+    message:null,
+    user:null,
+    usermyself:null,
+    reply_value:null,
+  },
+
+  reply_value:function(e){
+
+    this.setData({
+      reply_value: e.detail.value
+    })
+  },
+
+  sub_reply:function(e){
+
+    this.setData({
+      isHide: true
+    });
+
   },
 
   /**
@@ -15,7 +34,7 @@ Page({
    */
   onLoad: function (options) {
     this.data.sid = options.id
-    var userid = "2"
+    var userid = app.globalData.uid
     var that = this
     wx.request({
       url: app.globalData.serverIP + "/comment/newCommentInfoList/" + userid,
@@ -28,14 +47,18 @@ Page({
         console.log(res.data.data);
         var messagelist = res.data.data;
         var message = null;
+        var user = null;
         for(var i=0;i<messagelist.length;i++){
           if (messagelist[i].user.id == options.id)
               message = messagelist[i].commentList
+              user = messagelist[i].user
         }
         that.setData({
           message: message,
-
+          user:user ,
+          usermyself: app.globalData.userInfo
         })
+        console.log(user)
         console.log(message)
       }
     });

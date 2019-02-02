@@ -30,7 +30,7 @@ Page({
    */
   onShow: function () {
       var that = this;
-      var userid = "1";
+      var userid = app.globalData.uid;
       wx.request({
         url: app.globalData.serverIP + "/user/userinfo/"+userid,
         method: 'GET',

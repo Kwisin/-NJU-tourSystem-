@@ -5,11 +5,11 @@
             <navigator url="/pages/message/detail_message/detail_message?id={{item.user.id}}">
             <view class="weui-cell">
                 <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="/img/pic_160.png" style="width: 50px; height: 50px; display: block"/>
+                    <image src="{{item.user.portrait}}" style="width: 50px; height: 50px; display: block"/>
                     <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">1</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <view>{{item.user.id}}</view>
+                    <view>{{item.user.username}}</view>
                     <view style="font-size: 13px;color: #888888;">{{item.commentList[0].comment}}</view>
                 </view>
             </view>

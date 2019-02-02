@@ -29,7 +29,7 @@ Page({
       duration: 3000
     });
 
-    var userid = "1";
+    var userid = app.globalData.uid;
 
 
     wx.request({

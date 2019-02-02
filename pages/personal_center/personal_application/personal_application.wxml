@@ -5,21 +5,47 @@
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">申请状态</view>
-                    <view class="weui-form-preview__value">{{item.agree}}</view>
+                    <view class="weui-form-preview__value">待审批</view>
                 </view>
             </view>
             <view class="weui-form-preview__bd">
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">商品</view>
-                    <view class="weui-form-preview__value">电动打蛋机</view>
+                    <view class="weui-form-preview__label">活动名称</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
                 </view>
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">标题标题</view>
-                    <view class="weui-form-preview__value">名字名字名字</view>
+                    <view class="weui-form-preview__label">活动地点</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
                 </view>
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">标题标题</view>
-                    <view class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</view>
+                    <view class="weui-form-preview__label">活动时间</view>
+                    <view class="weui-form-preview__value">{{item.startTime}}～{{item.endTime}}</view>
+                </view>
+            </view>
+            
+        </view>
+    </view>    
+
+     <view class="page__bd"  wx:for="{{refuselist}}" wx:key="id" wx:for-item="item" style='margin-top:20rpx'>
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">申请状态</view>
+                    <view class="weui-form-preview__value">未通过</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">活动名称</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">活动地点</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">活动时间</view>
+                    <view class="weui-form-preview__value">{{item.startTime}}～{{item.endTime}}</view>
                 </view>
             </view>
             

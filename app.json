@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/home/home",
     "pages/search_results/search_results",
     "pages/release_activity/release_activity",
     "pages/myactivity/myactivity",
-    "pages/index/index",
+    
     "pages/logs/logs",
     "pages/finishedActivity/finishedActivity",
     "pages/ongoingActivity/ongoingActivity",
