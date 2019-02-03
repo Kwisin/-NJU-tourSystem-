@@ -5,7 +5,6 @@
     "pages/search_results/search_results",
     "pages/release_activity/release_activity",
     "pages/myactivity/myactivity",
-    
     "pages/logs/logs",
     "pages/finishedActivity/finishedActivity",
     "pages/ongoingActivity/ongoingActivity",
@@ -18,7 +17,8 @@
     "pages/personal_center/personal_application/personal_application",
     "pages/personal_center/personal_info/modify",
     "pages/message/message",
-    "pages/message/detail_message/detail_message"
+    "pages/message/detail_message/detail_message",
+    "pages/personal_center/personal_activity/check/check"
   ],
   "permission": {
     "scope.userLocation": {

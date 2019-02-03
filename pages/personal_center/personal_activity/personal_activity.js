@@ -11,6 +11,8 @@ Page({
     myactivity:[]
   },
 
+  
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -29,11 +31,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var userid = "1"
+    var userid = app.globalData.uid
+    console.log(userid)
     wx.request({
-      url: app.globalData.serverIP + "/activity/myActivityList/" + userid,
+      url: app.globalData.serverIP + "/activity/myOrganizedActivityList/" + userid,
       success: res => {
         if (res.data.status == "ok") {
+          console.log(res.data.data)
           this.setData({
             myactivity: res.data.data
           })
