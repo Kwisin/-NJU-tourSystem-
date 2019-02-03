@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: app.globalData.serverIP + '/activity/myOngoingActivityList/' + app.globalData.userId,
+      url: app.globalData.serverIP + '/activity/myOngoingActivityList/' + app.globalData.uid,
       success: res => {
         if (res.data.data.length == 0)
         {
