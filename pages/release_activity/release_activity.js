@@ -73,7 +73,7 @@ Page({
                 endTime: this.data.date_end,                
                 maxNum: this.data.input_maxnum,
                 name: this.data.input_title,
-                organizerId: app.globalData.userId,
+                organizerId: app.globalData.uid,
                 payment: this.data.input_payment,
                 startTime: this.data.date_begin,
                 state: true            
