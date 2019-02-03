@@ -38,7 +38,7 @@ Page({
     var that = this
     var temp_id = e.target.dataset.id;
     wx.request({
-      url: app.globalData.serverIP + "/activity/applicationAgreement/" + temp_id + ",已通过",
+      url: app.globalData.serverIP + "/activity/applicationAgreement/" + temp_id + ",未通过",
       method: 'GET',
       header: {
         "Content-Type": "application/json"
