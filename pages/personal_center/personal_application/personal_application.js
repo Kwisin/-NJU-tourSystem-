@@ -34,7 +34,7 @@ Page({
       url: app.globalData.serverIP + "/activity/myapplicationList/" + userid,
       success: res => {
         if (res.data.status == "ok") {
-          console.log(res.data)
+
           this.setData({
           
             myapplication: res.data.data
@@ -46,7 +46,7 @@ Page({
       url: app.globalData.serverIP + "/activity/myRefusedList/" + userid,
       success: res => {
         if (res.data.status == "ok") {
-          console.log(res.data)
+
           this.setData({
 
             refuselist: res.data.data
