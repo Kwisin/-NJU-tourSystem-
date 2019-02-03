@@ -81,7 +81,7 @@ Page({
               success: res => {
                   console.log("提交成功")
                   wx.navigateBack({
-                      
+                    
                   })
               }
           })

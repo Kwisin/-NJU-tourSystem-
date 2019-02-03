@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: app.globalData.serverIP + '/activity/myNewActivityList/' + app.globalData.userId,
+      url: app.globalData.serverIP + '/activity/myNewActivityList/' + app.globalData.uid,
       success: res => {
         if (res.data.data.length == 0) {
           wx.showToast({
