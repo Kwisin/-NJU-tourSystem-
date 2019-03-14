@@ -1,10 +1,14 @@
 <!--pages/myactivity/myactivity.wxml-->
 <view class="page">
     <view class="firrow">
-        <button class="join"  plain='true' bindtap="clickjoin">我参加的活动</button>
+    <button class="button_class1"   bindtap="clickjoin"><image src='../../img/timg.png' style="height:135px;width:100%" mode='widthFix'></image></button>
+    
+        
     </view>
-    <view class="secrow">
-        <button class="apply" plain='true' bindtap="clickapply">我申请的活动</button>
-        <button class="exa" plain='true' bindtap="clickexa">待审批的活动</button>
+    <view class="firrow">
+        <button class="button_class2"  bindtap="clickapply"><image src='../../img/test.png' style="height:135px;width:100%" ></image>我申请的活动</button>
+        </view>
+    <view class="firrow">
+        <button class="button_class3"  bindtap="clickexa"><image src='../../img/timg2.png' style="height:135px;width:100%" mode='widthFix'></image>待审批的活动</button>
     </view>
 </view>
