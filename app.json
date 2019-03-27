@@ -1,6 +1,6 @@
 {
-  "pages": [
-    "pages/index/index",
+  "pages": [ 
+    "pages/index/index",   
     "pages/home/home",
     "pages/search_results/search_results",
     "pages/release_activity/release_activity",

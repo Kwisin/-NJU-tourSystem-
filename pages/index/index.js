@@ -40,7 +40,7 @@ Page({
                       "Content-Type": "application/x-www-form-urlencoded"
                     },
                     success: resdata => {
-                      app.globalData.uid = resdata.data.data.o_id
+                      //app.globalData.uid = resdata.data.data.o_id
 
                       console.log(app.globalData)
 

@@ -64,12 +64,16 @@
   padding: 10rpx;
   margin-bottom:16rpx;
   background-color: white;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.questionItem{
+.activityItem{
   font-size:35rpx;
 }
-.questionContent {
+.activityContent {
     margin: 10rpx ;
     color: rgb(96, 102, 105);
     font-size:32rpx;

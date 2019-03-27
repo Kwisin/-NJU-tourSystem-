@@ -73,7 +73,7 @@ Page({
                 endTime: this.data.date_end,                
                 maxNum: this.data.input_maxnum,
                 name: this.data.input_title,
-                organizerId: app.globalData.userId,
+                organizerId: app.globalData.uid,
                 payment: this.data.input_payment,
                 startTime: this.data.date_begin,
                 state: true            
@@ -119,7 +119,26 @@ Page({
       date_end: e.detail.value
     })
   },
-
+  bindStartDateChange1: function (e) {
+    this.setData({
+      date_deadline: e.detail.value      
+    })
+  },
+  bindStartDateChange2: function (e) {
+    this.setData({
+      date_begin: e.detail.value
+    })
+  },
+  bindStartDateChange3: function (e) {
+    this.setData({
+      date_end: e.detail.value
+    })
+  },
+  bindEndDateChange: function (e) {
+    this.setData({
+      date_end: e.detail.value
+    })
+  },
   bindDateChange3(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({

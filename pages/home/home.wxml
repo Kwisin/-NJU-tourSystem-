@@ -1,5 +1,43 @@
 <!--pages/hot/hot.wxml-->
-
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="search flex-wrp search_row">
+      <view class="search-left flex-item">
+          <image src="../../img/search.png"></image>
+          <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder" bindinput='searchInput'/>
+      </view>
+      <view class="search-right flex-item" bindtap='search'>
+          <image src="../../img/lighting.png"></image>
+      </view>
+      <view class="search-right flex-item" bindtap='ask'>
+          <image src="../../img/add.png"></image>
+      </view>
+  </view>   
+    <block  wx:for="{{activities}}" wx:key="id">
+        <view class="feed-item">
+            <view class="feed-content">
+                <view class="question" >
+                    <a class="question-link">
+                        <text>{{item.name}}</text>
+                    </a>
+                </view>
+                <view class="answer-body">
+                    <view  bindtap='viewDetails' data-activity="{{item}}" data-id="{{item.id}}">
+                        <text class="answer-txt txt" >{{item.description}}</text>
+                    </view>
+                    <view class="answer-actions" >
+                        <view class="like start">
+                            <a >活动开始日期：{{item.startTime}}</a>       
+                        </view>
+                        <view class="comments end">
+                            <a>活动结束日期：{{item.endTime}} </a>
+                        </view>                        
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+<!-->
 <view class="page">
     <view class='page_row'>
         <view class="search">

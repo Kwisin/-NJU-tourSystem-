@@ -51,7 +51,7 @@ App({
     userInfo: null,
     aid: "wxee1a29d2bd12370b",
     sid: "7d52c5f0d7f11ea3397c6d436af69cd7",
-    uid: null,
+    uid: "odTDj5IHaQPRGUsDDTSGCPALu2bk",
     serverIP: "http://localhost:8080"
   }
 })

@@ -1,4 +1,179 @@
+<import src="../../packages/@wux/components/toptips/toptips.wxml"/>
+<template is="toptips" data="{{ ...$wux.toptips }}"/>
+<import src="../../packages/@wux/components/dialog/dialog.wxml"/>
+<template is="dialog" data="{{ ...$wux.dialog }}"/>
+<view class="header-box"></view>
+<view class="show-box">
+    <form bindsubmit="submitForm" report-submit="true">
+      <view class="weui-cells weui-cells_after-title ">
+        <!-- 聚会主题 -->
+        <view class="weui-cell weui-cell_input loear-title">
+          <view class="weui-cell__bd">
+            <input 
+              class="weui-input title-input" 
+              placeholder="活动主题"
+              name="title"
+              bindinput='input_title'
+            />
+          </view>
+        </view>
+        <!-- 活动详情  -->
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="textarea-wrp">
+              <textarea 
+                bindblur="bindTextAreaBlur" 
+                auto-height 
+                class="weui-textarea" 
+                placeholder="活动详情" 
+                style="height: 6em" 
+                placeholder-class="placeholder" 
+                name="description"
+                bindinput='input_content'
+              />
+            </view>
+            <!-- 背景图片  
+            <view class="weui-uploader">
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{files}}" wx:key="item">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item.url}}">
+                      <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <view wx:if="{{has_image}}">
+                  <view class="loear-uploder__tips" bindtap="chooseImage">更换图片</view>
+                </view>
+                <view wx:else>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                  <view class="loear-uploder__tips">背景图片</view>
+                </view>
+              </view>
+            </view>-->
+          </view>
+        </view>
+        <!-- 时间 -->
+        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">报名截止日期</view>
+          </view>
+          <view class="weui-cell__bd loear-data">
+            <picker 
+              mode="date" 
+              value="{{date_deadline}}" 
+              start="2018-01-01" 
+              end="2020-01-01" 
+              bindchange="bindStartDateChange1" 
+              name="date_deadline"
+            >
+              <view class="weui-input">{{date_deadline}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">活动开始日期</view>
+          </view>
+          <view class="weui-cell__bd loear-data">
+            <picker 
+              mode="date" 
+              value="{{date_begin}}" 
+              start="2018-01-01" 
+              end="2020-01-01" 
+              bindchange="bindStartDateChange2" 
+              name="date_begin"
+            >
+              <view class="weui-input">{{date_begin}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">活动结束日期</view>
+          </view>
+          <view class="weui-cell__bd loear-data">
+            <picker 
+              mode="date" 
+              value="{{date_end}}" 
+              start="2018-01-01" 
+              end="2020-01-01" 
+              bindchange="bindStartDateChange3" 
+              name="date_end"
+            >
+              <view class="weui-input">{{date_end}}</view>
+            </picker>
+          </view>
+        </view>
+        <!-- 地点 -->
+        <view bindtap="openmap" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">活动地点</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{title}}</view>
+        </view>
+      </view>
 
+      <view class="weui-cells__title"> </view>
+      <view class="weui-cells weui-cells_after-title">
+        <!--人数上限-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">活动人数</view>
+          </view>
+          <input class="weui-input loear-right" placeholder="请输入最大活动人数" placeholder-class='loear-right' name="num" value="{{input_maxnum}}" bindinput='input_maxnum'/>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">活动资金</view>
+          </view>
+          <input class="weui-input loear-right" type="number" placeholder="请输入活动所需金额" placeholder-class='loear-right' name="payment" value="{{input_payment}}" bindinput='input_payment'/>
+        </view>      
+        <view class="weui-cell weui-cell_input {{show ? 'show' : 'hide'}}">
+          <view class="weui-cell__hd">
+            <view class="weui-label">人数上限</view>
+          </view>
+          <input class="weui-input loear-right" type="number" placeholder="请输入聚会人数上限" placeholder-class='loear-right' name="numbers" value="50"/>
+        </view>        
+        <view class="weui-cell weui-cell_input {{show ? 'show' : 'hide'}}" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">截止报名时间</view>
+          </view>
+          <view class="weui-cell__bd loear-data">
+            <picker mode="date" value="{{end_date}}" start="2018-01-01" end="2019-01-01" bindchange="bindEndDateChange" name="end_date">
+              <view class="weui-input">{{end_date}}</view>
+            </picker>
+          </view>
+          <view class="loear-time">
+            <picker 
+              mode="time" 
+              value="{{end_time}}" 
+              start="7:00" 
+              end="23:59" 
+              bindchange="bindEndTimeChange" 
+              name="end_time"
+              style='margin-right:10px;'
+            >
+              <view class="weui-input">{{end_time}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>      
+      <view class="submit-box" hover-class="submit-btn_active">
+        <button class="submit-btn" formType="submit" hover-class="submit-active" bindtap='commit_activity'>
+          立即发布
+        </button>        
+      </view>           
+    </form>    
+</view>
+
+
+
+
+
+
+
+<!--
 <view class="release_activity">   
     <view class="title" >
         <text>输入你的活动标题：</text>
@@ -64,3 +239,4 @@
     <button bindtap='cancel'>取消</button>
     <button bindtap='commit_activity'>提交</button>
 </view>
+-->

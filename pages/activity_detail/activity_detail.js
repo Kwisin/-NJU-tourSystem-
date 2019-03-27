@@ -48,7 +48,7 @@ Page({
     console.log(app.globalData.userId);
     console.log(this.data.activity.id)
     wx.request({
-      url: app.globalData.serverIP + "/activity/joinActivity/" + app.globalData.userId + "," + this.data.activity.id,
+      url: app.globalData.serverIP + "/activity/joinActivity/" + app.globalData.uid + "," + this.data.activity.id,
       success: res => {
         if (res.data.status == "ok") {
           //util.insert(this.data.userInfo.followProblem, this.data.problem.problemId);
