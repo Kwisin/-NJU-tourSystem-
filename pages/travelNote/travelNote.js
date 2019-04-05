@@ -1,14 +1,8 @@
 // pages/travelNote/travelNote.js
+const app = getApp()
+
+
 Page({
-
-
-  config:{
-    usingComponent:{
-      "wxc-icon":"@minui/wxc-icon",
-      "wxc-search":"@minui/wxc-search"
-    }
-  
-  },
 
   /**
    * 页面的初始数据

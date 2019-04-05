@@ -11,7 +11,8 @@ Page({
     message:null,
     user:null,
     usermyself:null,
-    reply_value:null,
+    reply_value:null
+
   },
 
   reply_value:function(e){
@@ -22,9 +23,10 @@ Page({
   },
 
   sub_reply:function(e){
-
+    
     this.setData({
-      isHide: true
+      isHide: true,
+      
     });
 
   },

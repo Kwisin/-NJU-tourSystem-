@@ -18,8 +18,8 @@
  
 <view wx:else>
     <view class="page__hd">
-        <view class="page__title">Loadmore</view>
-        <view class="page__desc">加载更多</view>
+        <!-- <view class="page__title">Loadmore</view>
+        <view class="page__desc">加载更多</view> -->
     </view>
     <view class="page__bd">
         <view class="weui-loadmore">
