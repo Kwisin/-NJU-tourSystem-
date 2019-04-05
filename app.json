@@ -19,8 +19,9 @@
     "pages/message/message",
     "pages/message/detail_message/detail_message",
     "pages/personal_center/personal_activity/check/check",
-    "pages/travelNote/travelNote"
-
+    "pages/travelNote/travelNote",
+    "pages/travelNote/newNote/newNote",
+    "pages/travelNote/detailNote/detailNote"
   ],
   "permission": {
     "scope.userLocation": {

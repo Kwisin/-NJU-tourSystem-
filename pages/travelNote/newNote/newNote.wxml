@@ -1,0 +1,45 @@
+
+<view class="header-box"></view>
+
+<view class="show-box">
+    <form bindsubmit="submitForm" report-submit="true">
+      <view class="weui-cells weui-cells_after-title ">
+        <!-- 聚会主题 -->
+        <view class="weui-cell weui-cell_input loear-title">
+          <view class="weui-cell__bd">
+            <input 
+              class="weui-input title-input" 
+              placeholder="请输入游记标题"
+              name="title"
+              bindinput='input_title'
+            />
+            </view>
+          </view>
+        <!-- 活动详情  -->
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="textarea-wrp">
+              <textarea 
+
+                auto-height 
+                class="weui-textarea" 
+                placeholder="请输入正文" 
+                style="height: 6em" 
+                placeholder-class="placeholder" 
+                name="description"
+                bindinput='input_content'
+              />
+              </view>
+            </view>
+          </view>
+      </view> 
+      <view class="submit-box" hover-class="submit-btn_active">
+        <button class="submit-btn" formType="submit" hover-class="submit-active" bindtap='releaseNote'>
+          发表
+        </button>        
+      </view>        
+   </form>
+
+   
+</view>
+         

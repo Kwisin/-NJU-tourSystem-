@@ -1,0 +1,23 @@
+<view class="content">
+        <!-- 头像 -->
+        <view class="author-date"> 
+            <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIgdm2H48ltq9UUEt6ibMMt4tmaYchWc60JxoRzMTazGdp6nTr2UOV7vfk6tn5KFVic2cQuwlBnal1g/132 " class="author"></image>
+            <text class="date" >{{detail.publishTime}}</text>
+             <!-- <image class="image" style='width:60px;height:60px;margin:0;padding:0;' src="/img/focus.png"></image> -->
+        </view>
+        <!-- 标题内容 -->
+         <text class="title">{{detail.title}}</text>
+         <image class="image" src="/img/paris.jpeg"></image>
+         <text class="article-content">{{detail.content}}</text>
+        <view >
+
+          <image class="article-images" src="/img/star.png"></image>
+          <text  class="article-text">66</text>
+
+          <image class="article-images" src="/img/seen.png"></image>
+          <text class="article-text">{{detail.readNum}}</text>
+
+        </view>
+
+
+</view>

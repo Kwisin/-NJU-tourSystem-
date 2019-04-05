@@ -8,6 +8,47 @@ Page({
    * 页面的初始数据
    */
   data: {
+    inputContent:"",
+    travelNotes:null,
+  },
+
+  searchInput: function (e) {
+    this.data.inputContent = e.detail.value;
+  },
+
+  search:function(e){
+    console.log("search note" + this.data.inputContent);
+    var userid = app.globalData.uid;
+    wx.request({
+      url: app.globalData.serverIP +'/tourRecord/getArticleByContent',
+      data:{
+        content:this.inputContent
+      },
+      success: res => {
+        if (res.data.status == "ok") {
+          this.setData({
+            travelNotes: res.data.data
+          })
+        }
+      }
+    })
+    console.log(this.travelNotes)
+
+  },
+
+  newNote: function (e) {
+    wx.navigateTo({
+      url: "newNote/newNote"
+    })
+  },
+
+  detailsNote: function (e) {
+    var noteid = e.id;//获取id,写好了确定怎么取;
+    noteid = "3";
+    wx.navigateTo({
+      url: 'detailNote/detailNote?noteid=' + noteid,
+    })
+
 
   },
 

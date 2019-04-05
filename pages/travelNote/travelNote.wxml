@@ -5,16 +5,19 @@
  <view class="search flex-wrp search_row">
       <view class="search-left flex-item">
           <image src="../../img/search.png"></image>
-          <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder" bindinput='searchInput'/>
+          <input placeholder="请输入游记关键字" placeholder-class="search-placeholder" bindinput='searchInput'/>
       </view>
       <view class="search-right flex-item" bindtap='search'>
           <image src="../../img/lighting.png"></image>
       </view>
-      <view class="search-right flex-item" bindtap='ask'>
+      <view class="search-right flex-item" bindtap='newNote'>
           <image src="../../img/add.png"></image>
       </view>
   </view>   
 
+<view  bindtap='detailsNote' >
+  <image class="image" style='width:60px;height:60px;margin:0;padding:0;' src="/img/focus.png"></image>
+</view>
 
   
 </scroll-view>
