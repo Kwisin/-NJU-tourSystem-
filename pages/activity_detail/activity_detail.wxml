@@ -9,7 +9,7 @@
         </view>
       <view class="problem-content">{{activity.description}} </view> 
       <view class="datesection">        
-            <text class="fir" style='margin-top:30px'>报名截止日期：{{deadline}}</text>
+            <text class="fir" style='margin-top:45px'>报名截止日期：{{deadline}}</text>
       </view> 
       <view class="datesection">        
             <text class="fir">剩余名额：{{maxNum-currentNum}}</text>
