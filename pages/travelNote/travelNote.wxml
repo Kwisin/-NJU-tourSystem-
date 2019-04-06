@@ -15,9 +15,9 @@
       </view>
   </view>   
 
-<view  bindtap='detailsNote' >
+<!-- <view  bindtap='detailsNote' >
   <image class="image" style='width:60px;height:60px;margin:0;padding:0;' src="/img/focus.png"></image>
-</view>
+</view> -->
 
  <block  wx:for="{{travelNotes}}" wx:key="id">
         <view class="feed-item">
