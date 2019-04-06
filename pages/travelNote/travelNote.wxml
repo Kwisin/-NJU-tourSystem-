@@ -19,5 +19,29 @@
   <image class="image" style='width:60px;height:60px;margin:0;padding:0;' src="/img/focus.png"></image>
 </view>
 
+ <block  wx:for="{{travelNotes}}" wx:key="id">
+        <view class="feed-item">
+            <view class="feed-content">
+                <view class="question" >
+                    <a class="question-link">
+                        <text>{{item.title}}</text>
+                    </a>
+                </view>
+                <view class="answer-body">
+                    <view  bindtap='detailsNote' data-activity="{{item}}" data-id="{{item.id}}">
+                        <text class="answer-txt txt" >{{item.content}}</text>
+                    </view>
+                    <view class="answer-actions" >
+                        <view class="like start">
+                            <a >发布日期:{{item.publishTime}}</a>       
+                        </view>
+                        <view class="comments end">
+                            <a>浏览量:{{item.readNum}} </a>
+                        </view>                        
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
   
 </scroll-view>

@@ -19,19 +19,33 @@ Page({
   search:function(e){
     console.log("search note" + this.data.inputContent);
     var userid = app.globalData.uid;
-    wx.request({
-      url: app.globalData.serverIP +'/tourRecord/getArticleByContent',
-      data:{
-        content:this.inputContent
-      },
-      success: res => {
-        if (res.data.status == "ok") {
-          this.setData({
-            travelNotes: res.data.data
-          })
+    if (this.data.inputContent.length != 0){
+      wx.request({
+        url: app.globalData.serverIP + '/tourRecord/getArticleByContent/',
+        data: {
+          content: this.data.inputContent
+        },
+        success: res => {
+          if (res.data.status == "ok") {
+            this.setData({
+              travelNotes: res.data.data
+            })
+          }
         }
-      }
-    })
+      })
+    }
+    else{
+      wx.request({
+        url: app.globalData.serverIP + '/tourRecord/getHotArticle',
+        success: res => {
+          if (res.data.status == "ok") {
+            this.setData({
+              travelNotes: res.data.data
+            })
+          }
+        }
+      })
+    }
     console.log(this.travelNotes)
 
   },
@@ -43,8 +57,8 @@ Page({
   },
 
   detailsNote: function (e) {
-    var noteid = e.id;//获取id,写好了确定怎么取;
-    noteid = "3";
+    // var noteid = e.id;//获取id,写好了确定怎么取;
+    var noteid = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'detailNote/detailNote?noteid=' + noteid,
     })
@@ -56,7 +70,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: app.globalData.serverIP + '/tourRecord/getHotArticle',
+      success: res => {
+        if (res.data.data.length == 0) {
+          wx.showToast({
+            title: '没有相关游记',
+            image: '../../img/error.png'
+          })
+        }
+        else {
+          this.setData({
+            travelNotes: res.data.data
+          })
+        }
+      }
+    })
   },
 
   /**
