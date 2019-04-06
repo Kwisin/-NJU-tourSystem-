@@ -1,7 +1,8 @@
 /* pages/problem_detail/problem_detail.wxss */
-page {
-  background-color: #e8e8e8;
-  height: 100%;
+.page{
+    width: 100%;
+    height: 100%;
+    background-color: white;
 }
 .page-section{
   width: 100%;
@@ -37,7 +38,7 @@ page {
 .datesection {
   display: flex;
   flex-direction: row;
-  margin-top: 8%;
+  margin-top: 4%;
   font-size: 25rpx;
 }
 .datesection .sec {
@@ -59,7 +60,7 @@ page {
   }
   .follow-problem .to-follow-problem {
     color: #0184ff;
-    background-color: #f6f6f6;
+    background-color: white;
   }
   .follow-problem .unfollow-problem {
     color: #999999;
@@ -68,6 +69,12 @@ page {
   .follow-problem .my-problem {
     color: #ff0000;
   }
+  .firrow{
+  width: 100%;
+  height: 150px;
+  margin: 0px;
+  /* background-color: white; */
+}
 
 
 

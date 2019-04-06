@@ -5,24 +5,32 @@
       <view class="problem">
         <text class="problem-title">{{activity.name}}</text>                      
       </view>
+      <view class="firrow"><image src='../../img/yichun.jpg' style="height:135px;width:100%" ></image>
+        </view>
       <view class="problem-content">{{activity.description}} </view> 
       <view class="datesection">        
-            <text class="fir">报名截止日期：{{deadline}}</text>
-            <text class="sec">剩余名额：{{maxNum-currentNum}}</text>
+            <text class="fir" style='margin-top:30px'>报名截止日期：{{deadline}}</text>
+      </view> 
+      <view class="datesection">        
+            <text class="fir">剩余名额：{{maxNum-currentNum}}</text>
       </view> 
       <view class="datesection">    
             <text class="fir">活动开始日期：{{startTime}}</text>
-            <text class="sec">活动经费：{{payment}}</text>
+      </view> 
+      <view class="datesection">
+            <text class="fir">活动经费：{{payment}}</text>
       </view> 
       <view class="datesection">        
             <text class="fir">活动结束日期：{{endTime}}</text>
       </view> 
+      <!-- <view class="datesection">  -->
       <view class="follow-problem" wx:if="{{currentDate <= deadline}}">
         <view class="to-follow-problem" bindtap="followProblem">+ 参加活动 </view>
       </view>    
       <view class="follow-problem" wx:else>
         <view class="my-problem"  >已过期</view>
       </view>
+      <!-- </view>  -->
     </view>
   </view>
 </view>
